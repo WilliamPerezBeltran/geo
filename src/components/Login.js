@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext.js";
 import "../style/Login.scss";
+import * as FetchLogin from "../services/FetchLogin";
 
 export const LoginPage = () => {
   const history = useHistory();
@@ -11,13 +12,19 @@ export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleNavigation = (e) => {
+  const handleNavigation = async (e) => {
     e.preventDefault();
-    if (email === "admin" && password === "test") {
-      setUserInfo(email);
-      history.push("/list");
-    } else {
-      alert("Password or email is invalid");
+
+    if (email && password) {
+      let response = await FetchLogin.Login(email, password);
+      if (response.hasOwnProperty("access_token")) {
+        console.log("response successfully");
+        console.log(response);
+        setUserInfo(email);
+        history.push("/list");
+      } else {
+        alert("Password or email is invalid");
+      }
     }
   };
 
