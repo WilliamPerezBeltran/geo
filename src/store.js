@@ -14,7 +14,6 @@ const reducerToken = (state = initStateReducerToken, action) => {
   return state;
 };
 
-
 const initStateReducerJobs = {
   jobs: [],
 };
@@ -28,6 +27,19 @@ const reducerJobs = (state = initStateReducerJobs, action) => {
   return state;
 };
 
+const initStateDetailJob = {
+  job: {},
+};
+const reducerDetailJob = (state = initStateDetailJob, action) => {
+  if (action.type === "detailJob") {
+    return {
+      ...state,
+      job: action.job,
+    };
+  }
+  return state;
+};
+
 const logger = (store) => (next) => (action) => {
   console.log("dispatching", action);
   let result = next(action);
@@ -36,6 +48,6 @@ const logger = (store) => (next) => (action) => {
 };
 
 export default createStore(
-  combineReducers({ reducerToken,reducerJobs }),
+  combineReducers({ reducerToken, reducerJobs, reducerDetailJob }),
   applyMiddleware(logger, thunk)
 );

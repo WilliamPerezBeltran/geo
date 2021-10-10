@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "react-redux";
 import "../style/Job.scss";
-import { storeJobs } from "../ActionCreator";
+import { detailJob } from "../ActionCreator";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export const Jobs = () => {
+  const history = useHistory();
   const store = useStore();
   const jobs = store.getState().reducerJobs.jobs;
+  const dispatch = useDispatch();
+
+  const passData = (jobItem) => {
+    dispatch(detailJob(jobItem));
+    history.push("/detail");
+  };
 
   return (
     <>
@@ -13,7 +22,11 @@ export const Jobs = () => {
         <div className="cards">
           {jobs.map((jobItem, jobId) => {
             return (
-              <article className="card" key={jobId}>
+              <article
+                className="card"
+                key={jobId}
+                onClick={() => passData(jobItem)}
+              >
                 <header>
                   <h2>{jobItem.title}</h2>
                 </header>
@@ -51,7 +64,6 @@ export const Jobs = () => {
           })}
         </div>
       </div>
-
     </>
   );
 };

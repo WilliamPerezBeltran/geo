@@ -7,7 +7,7 @@ import "../style/Me.scss";
 
 export const Me = () => {
   const store = useStore();
-    const token = store.getState().reducerToken.token.access_token;
+  const token = store.getState().reducerToken.token.access_token;
   const [personalData, setPersonalData] = useState("");
 
   useEffect(() => {

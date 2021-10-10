@@ -4,9 +4,9 @@ import { useStore } from "react-redux";
 import * as FetchJobs from "../services/FetchJobs";
 import * as obj from "../data/DataJobs.js";
 import { storeJobs } from "../ActionCreator";
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux";
 
-import Jobs from "./Jobs"
+import Jobs from "./Jobs";
 
 export const ListPage = () => {
   const store = useStore();
@@ -19,7 +19,7 @@ export const ListPage = () => {
       // let response = await FetchJobs.Jobs(token);
       let response = await obj.jobsData;
       if (response) {
-        dispatch(storeJobs(response))
+        dispatch(storeJobs(response));
         setJobs(response.data);
       }
     };
@@ -29,7 +29,7 @@ export const ListPage = () => {
   return (
     <>
       <h1>Hello From List Page</h1>
-      <Jobs/>
+      <Jobs />
       <Link to="/detail">Navigate to detail</Link>
     </>
   );

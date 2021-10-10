@@ -12,4 +12,11 @@ const storeJobs = (jobs) => {
   };
 };
 
-export { storeToken, storeJobs };
+const detailJob = (job) => {
+  return {
+    type: "detailJob",
+    job: job,
+  };
+};
+
+export { storeToken, storeJobs, detailJob };
