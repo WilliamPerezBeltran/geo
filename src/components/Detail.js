@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "react-redux";
 import Job from "./Job";
 
 export const DetailPage = () => {
   const store = useStore();
-
-  const [jobDetail, setJobDetail] = useState("");
-
-  useEffect(() => {
-    let data = () => {
-      const job = store.getState().reducerDetailJob.job;
-      setJobDetail(job);
-    };
-    data();
-  }, []);
+  const jobDetail = store.getState().reducerDetailJob.job;
 
   return (
     <>

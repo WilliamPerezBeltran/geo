@@ -5,7 +5,6 @@ import * as FetchJobs from "../services/FetchJobs";
 import * as obj from "../data/DataJobs.js";
 import { storeJobs } from "../ActionCreator";
 import { useDispatch } from "react-redux";
-
 import Jobs from "./Jobs";
 
 export const ListPage = () => {

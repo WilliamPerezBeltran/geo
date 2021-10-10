@@ -4,7 +4,6 @@ import "../style/NavBar.scss";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
-
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
