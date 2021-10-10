@@ -1,14 +1,28 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 
-const init_state_reducer_token = {
+const initStateReducerToken = {
   token: [],
 };
-const reducer_token = (state = init_state_reducer_token, action) => {
-  if (action.type === "STORE_TOKEN") {
+const reducerToken = (state = initStateReducerToken, action) => {
+  if (action.type === "storeToken") {
     return {
       ...state,
       token: action.token,
+    };
+  }
+  return state;
+};
+
+
+const initStateReducerJobs = {
+  jobs: [],
+};
+const reducerJobs = (state = initStateReducerJobs, action) => {
+  if (action.type === "storeJobs") {
+    return {
+      ...state,
+      jobs: action.jobs.data,
     };
   }
   return state;
@@ -22,6 +36,6 @@ const logger = (store) => (next) => (action) => {
 };
 
 export default createStore(
-  combineReducers({ reducer_token }),
+  combineReducers({ reducerToken,reducerJobs }),
   applyMiddleware(logger, thunk)
 );

@@ -1,8 +1,15 @@
 const storeToken = (token) => {
   return {
-    type: "STORE_TOKEN",
+    type: "storeToken",
     token: token,
   };
 };
 
-export { storeToken };
+const storeJobs = (jobs) => {
+  return {
+    type: "storeJobs",
+    jobs: jobs,
+  };
+};
+
+export { storeToken, storeJobs };
