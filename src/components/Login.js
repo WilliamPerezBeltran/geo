@@ -1,9 +1,11 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext.js";
 import "../style/Login.scss";
 import * as FetchLogin from "../services/FetchLogin";
+import { storeToken } from "../ActionCreator";
+import { useDispatch } from "react-redux";
 
 export const LoginPage = () => {
   const history = useHistory();
@@ -11,6 +13,7 @@ export const LoginPage = () => {
   const { setUserInfo } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleNavigation = async (e) => {
     e.preventDefault();
@@ -18,9 +21,8 @@ export const LoginPage = () => {
     if (email && password) {
       let response = await FetchLogin.Login(email, password);
       if (response.hasOwnProperty("access_token")) {
-        console.log("response successfully");
-        console.log(response);
         setUserInfo(email);
+        dispatch(storeToken(response));
         history.push("/list");
       } else {
         alert("Password or email is invalid");
@@ -44,7 +46,6 @@ export const LoginPage = () => {
               className="input"
               placeholder="Ingrese email"
             ></input>
-            <span className="text-danger ">{errors?.email?.message}</span>
           </div>
           <div className="inputfield">
             <label>Password</label>
@@ -56,7 +57,6 @@ export const LoginPage = () => {
               className="input"
               placeholder="Ingrese el password"
             ></input>
-            <span className="text-danger">{errors?.name?.message}</span>
           </div>
 
           <div className="inputfield">
