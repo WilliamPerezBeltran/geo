@@ -3,6 +3,7 @@ import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LoginPage, ListPage, DetailPage } from "./components/Index";
 import { AuthProvider, AuthRouteComponent } from "./auth/Index";
+
 export const App = () => {
   return (
     <div>
