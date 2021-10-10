@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "react-redux";
 import * as FetchMe from "../services/FetchPersonalData.js";
-
 import * as obj from "../data/DataMe";
+import "../style/Me.scss";
+
 export const Me = () => {
   const store = useStore();
   const token = store.getState().reducer_token.token.access_token;
@@ -22,8 +23,8 @@ export const Me = () => {
 
   return (
     <div>
-      <div>
-        <div>
+      <div className="containerMe">
+        <div className="content">
           <h1>Personal data of {personalData.name} </h1>
 
           <ul>
@@ -35,7 +36,6 @@ export const Me = () => {
             <li>updated_at: {personalData.updated_at}</li>
           </ul>
         </div>
-        <div></div>
       </div>
 
       <Link to="/list">Navigate back to list</Link>
