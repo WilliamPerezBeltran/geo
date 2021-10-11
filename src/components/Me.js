@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useStore } from "react-redux";
 import * as FetchMe from "../services/FetchPersonalData.js";
 import "../style/Me.scss";
 import Cookies from "js-cookie";
 
 export const Me = () => {
-  const store = useStore();
   const token = Cookies.get("access_token");
   const [personalData, setPersonalData] = useState("");
 
