@@ -7,6 +7,7 @@ import {
   DetailPage,
   Navbar,
   Me,
+  Map,
 } from "./components/Index";
 import { AuthProvider, AuthRouteComponent } from "./auth/Index";
 
@@ -30,6 +31,10 @@ export const App = () => {
             <AuthRouteComponent path="/detail">
               <Navbar />
               <DetailPage />
+            </AuthRouteComponent>
+            <AuthRouteComponent path="/map">
+              <Navbar />
+              <Map />
             </AuthRouteComponent>
           </Switch>
         </Router>
