@@ -8,7 +8,7 @@ export const Jobs = async (token) => {
       method: "GET",
       headers: {
         Accept: "application/json",
-        Authorization: token,
+        Authorization: `Bearer${token}`,
       },
     });
 
