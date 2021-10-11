@@ -5,12 +5,15 @@ import * as FetchJobs from "../services/FetchJobs";
 import { storeJobs } from "../ActionCreator";
 import { useDispatch } from "react-redux";
 import Jobs from "./Jobs";
+import Cookies from "js-cookie";
 
 export const ListPage = () => {
   const store = useStore();
-  const token = store.getState().reducerToken.token.access_token;
+  const token = Cookies.get("access_token");
   const [jobs, setJobs] = useState([]);
   const dispatch = useDispatch();
+
+  const user = Cookies.get("access_token");
 
   useEffect(() => {
     const fetchData = async () => {
