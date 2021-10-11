@@ -1,72 +1,147 @@
-# Getting Started with Create React App
+# Prueba
+- Implementar un sistema de geolocalización de tareas de campo que incluya un módulo de autenticación.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Stack
 
-## Available Scripts
+- react 17.0.2,
+- npm 6.14.4
+- node 12.16.2
+- js-cookie3.0.1
+- mapbox-gl 2.5.0
+- node-sass 4.14.1
+- react-dom 17.0.2 
+- react-hook-form 7.17.2 
+- react-redux 7.1.3
+- react-router-dom 5.3.0
+- redux 4.0.5
+- redux-thunk 2.3.0
 
-In the project directory, you can run:
+### Clonar repositorio
 
-### `yarn start`
+```bash
+# clonar repositorio
+$ git clone https://github.com/WilliamPerezBeltran/geo.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Ir al directorio del app
+$ cd geo
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Instalar dependencias 
 
-### `yarn test`
+```bash
+# instalar con npm 
+$ npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Instalar con yarn 
+$ yarn o yarn install 
+```
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Ejecutar aplicación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Ejecutar app con npm 
+$ npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Ejecutar app con yarn 
+$ yarn start
+```
 
-### `yarn eject`
+### Heroku
+- [link para visualizar la applicación](https://still-headland-41741.herokuapp.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Qué incluye
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+├───public/
+│   ├───favicon.ico
+│   ├───index.html
+│   ├───logo192.png
+│   ├───logo512.png
+│   ├───manifest.json
+│   └───robots.txt
+├───src/
+│   ├───auth/
+│   │   ├───AuthContext.js
+│   │   ├───AuthRoute.js
+│   │   └───Index.js
+│   ├───components/
+│   │   ├───Detail.js
+│   │   ├───Index.js
+│   │   ├───Job.js
+│   │   ├───Jobs.js
+│   │   ├───List.js
+│   │   ├───LocationUser.js
+│   │   ├───Login.js
+│   │   ├───Map.js
+│   │   ├───Me.js
+│   │   └───NavBar.js
+│   ├───constants/
+│   │   └───Constants.js
+│   ├───images/
+│   ├───services/
+│   │   ├───FetchJobs.js
+│   │   ├───FetchLogin.js
+│   │   └───FetchPersonalData.js
+│   ├───style/
+│   │   ├───Detail.scss
+│   │   ├───Job.scss
+│   │   ├───List.scss
+│   │   ├───Login.scss
+│   │   ├───Me.scss
+│   │   └───NavBar.scss
+│   ├───ActionCreator.js
+│   ├───App.js
+│   ├───App.scss
+│   ├───App.test.js
+│   ├───index.css
+│   ├───index.js
+│   ├───reportWebVitals.js
+│   ├───setupTests.js
+│   └───store.js
+├───.gitignore
+├───README.md
+├───package-lock.json
+├───package.json
+└───yarn.lock
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Explicación de las carpetas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- auth: Código donde se encuentra todo lo relacionado a la autenticación.
+- components: Archivos javascript en donde cada uno es un componente.
+- constants: Constantes de la aplicación.
+- images: Imágenes de la aplicación. 
+- services: Código donde se encuentra todo lo relacionado los servicios de la aplicación o llamados a apis externas.
+- style: Código donde se encuentra todo lo relacionado a los estilos de la aplicación.
 
-### Code Splitting
+## Explicación de archivos 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- AuthContext.js = Creación del contexto 
+- AuthRoute.js = creación de las rutas del contexto
+- Detail.js = Detalle del job 
+- Job.js = Component donde se lista la información propia del job
+- Jobs.js = Component donde se donde llama a los jobs
+- List.js = Código donde se aloja el listado de los jobs por llamado
+- LocationUser.js = Código para mostrar la localización del actual usuario
+- Login.js = Código donde se hace el login del usuario
+- Map.js = Código donde se lista la ubicación geográfica de los jobs 
+- Me.js = Código donde se aloja la información del usuario 
+- NavBar.js = Navbar de la aplicación
+- Constants.js = Código donde se encuentran todas las constantes de la aplicación
+- FetchJobs.js = Servicio que implementa el llamado a https://coding-test.rootstack.net/api/jobs
+- FetchLogin.js = Servicio que implementa el llamado a https://coding-test.rootstack.net/api/auth/login.
+- FetchPersonalData.js = Servicio que implementa el llamado a https://coding-test.rootstack.net/api/auth/me
+- store.js = Código donde se encuentra alojado el árbol del estado de la aplicación
+- ActionCreator.js = Código donde se encuentra alojado los action creator
+- App.js = Código en donde se encuentra las rutas no autorizadas y las rutas autorizadas de la aplicación
 
-### Analyzing the Bundle Size
+## Creador
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**William Pérez**
 
-### Making a Progressive Web App
+- <https://github.com/WilliamPerezBeltran>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# geo
