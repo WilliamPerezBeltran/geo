@@ -21,7 +21,7 @@ const reducerJobs = (state = initStateReducerJobs, action) => {
   if (action.type === "storeJobs") {
     return {
       ...state,
-      jobs: action.jobs.data,
+      jobs: action.jobs,
     };
   }
   return state;

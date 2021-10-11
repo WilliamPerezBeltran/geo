@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "react-redux";
 import * as FetchJobs from "../services/FetchJobs";
-import * as obj from "../data/DataJobs.js";
 import { storeJobs } from "../ActionCreator";
 import { useDispatch } from "react-redux";
-
 import Jobs from "./Jobs";
 
 export const ListPage = () => {
@@ -16,10 +14,10 @@ export const ListPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // let response = await FetchJobs.Jobs(token);
-      let response = await obj.jobsData;
+      let response = await FetchJobs.Jobs(token);
+
       if (response) {
-        dispatch(storeJobs(response));
+        dispatch(storeJobs(response.data));
         setJobs(response.data);
       }
     };

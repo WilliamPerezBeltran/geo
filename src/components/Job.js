@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useStore } from "react-redux";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { detailJob } from "../ActionCreator";
@@ -8,22 +7,23 @@ export const Job = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const jobDetail = props.detailInformation;
-
   const passData = (jobItem) => {
     dispatch(detailJob(jobItem));
     history.push("/detail");
   };
 
   return (
-    <article
-      className="card"
-      onClick={() => passData(jobDetail)}
-    >
+    <article className="card" onClick={() => passData(jobDetail)}>
       <header>
         <h2>{jobDetail.title}</h2>
       </header>
       <div>
-        <img src={jobDetail.image} width="100" height="50" />
+        <img
+          src={jobDetail.image}
+          width="100"
+          height="50"
+          alt={jobDetail.title}
+        />
       </div>
       <div className="content">
         <p>{jobDetail.description}</p>

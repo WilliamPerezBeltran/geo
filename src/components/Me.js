@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "react-redux";
 import * as FetchMe from "../services/FetchPersonalData.js";
-import * as obj from "../data/DataMe";
 import "../style/Me.scss";
 
 export const Me = () => {
@@ -12,8 +11,7 @@ export const Me = () => {
 
   useEffect(() => {
     let data = async () => {
-      // let response = await FetchMe.Me(token);
-      let response = obj.personalData;
+      let response = await FetchMe.Me(token);
       if (response) {
         setPersonalData(response);
       }
