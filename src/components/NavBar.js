@@ -31,6 +31,15 @@ export const Navbar = () => {
               Map
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              to="/location"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Location user
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

@@ -8,6 +8,7 @@ import {
   Navbar,
   Me,
   Map,
+  LocationUser,
 } from "./components/Index";
 import { AuthProvider, AuthRouteComponent } from "./auth/Index";
 import { AuthContext } from "./auth/AuthContext.js";
@@ -28,6 +29,10 @@ export const App = () => {
             <AuthRouteComponent path="/list">
               <Navbar />
               <ListPage />
+            </AuthRouteComponent>
+            <AuthRouteComponent path="/location">
+              <Navbar />
+              <LocationUser />
             </AuthRouteComponent>
             <AuthRouteComponent path="/detail">
               <Navbar />
