@@ -25,6 +25,12 @@ export const Navbar = () => {
               me
             </Link>
           </li>
+
+          <li className="nav-item">
+            <Link to="/map" className="nav-links" onClick={closeMobileMenu}>
+              Map
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
