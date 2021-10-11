@@ -7,6 +7,8 @@ import * as FetchLogin from "../services/FetchLogin";
 import { storeToken } from "../ActionCreator";
 import { useDispatch } from "react-redux";
 
+import Cookies from "js-cookie";
+
 export const LoginPage = () => {
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
@@ -21,7 +23,8 @@ export const LoginPage = () => {
     if (email && password) {
       let response = await FetchLogin.Login(email, password);
       if (response.hasOwnProperty("access_token")) {
-        setUserInfo(email);
+        setUserInfo(true);
+        Cookies.set("access_token", response.access_token);
         dispatch(storeToken(response));
         history.push("/list");
       } else {

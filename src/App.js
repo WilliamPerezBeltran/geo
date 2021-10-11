@@ -10,6 +10,7 @@ import {
   Map,
 } from "./components/Index";
 import { AuthProvider, AuthRouteComponent } from "./auth/Index";
+import { AuthContext } from "./auth/AuthContext.js";
 
 export const App = () => {
   return (

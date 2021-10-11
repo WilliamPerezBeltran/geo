@@ -2,12 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { detailJob } from "../ActionCreator";
+import Cookies from "js-cookie";
 
 export const Job = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const jobDetail = props.detailInformation;
   const passData = (jobItem) => {
+    Cookies.set("detailJobId", jobItem.id);
     dispatch(detailJob(jobItem));
     history.push("/detail");
   };
