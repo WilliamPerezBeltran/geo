@@ -8,6 +8,7 @@ export const AuthRouteComponent = (props) => {
 
   React.useEffect(() => {
     if (!userInfo) {
+    	console.log('llegoo a AuthRouteComponent')
       history.push("/");
     }
   }, [props?.location?.pathname]);

@@ -1,7 +1,7 @@
 import React from "react";
 
 export const AuthContext = React.createContext({
-  userInfo: "",
+  userInfo: false,
   setUserInfo: (user) =>
     console.log("Did you forgot to add AuthContext on top of your app?"),
 });

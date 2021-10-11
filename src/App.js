@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useContext,useEffect}from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
@@ -10,8 +10,51 @@ import {
   Map,
 } from "./components/Index";
 import { AuthProvider, AuthRouteComponent } from "./auth/Index";
+import { AuthContext } from "./auth/AuthContext.js";
+
+import Cookies from 'js-cookie'
+import { useHistory } from "react-router-dom";
 
 export const App = () => {
+
+  const { setUserInfo } = useContext(AuthContext);
+  const history = useHistory();
+
+  // const ReadCookie=()=>{
+  //   console.log('readccookies---------readccookies---------')
+  //   // const user = Cookies.get("user")
+  //   const user = "sdfsdf"
+  //   if(user){
+  //     console.log('user infor')
+  //   }
+  //   useEffect(() => {
+  //     return () => {
+  //       ReadCookie()
+  //     };
+  //   }, [])
+  // }
+
+
+
+   useEffect(() => {
+    let readCookie = () => {
+      const user = Cookies.get("user")
+      console.log('gettt cokkies')
+      console.log(user)
+        console.log('llego a readCookie')
+    if(user){
+      setUserInfo(false);
+      // history.push("/list");
+    }
+
+    };
+    readCookie();
+  }, []);
+
+
+
+
+
   return (
     <div>
       <AuthProvider>
