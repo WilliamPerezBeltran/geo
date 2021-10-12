@@ -1,12 +1,19 @@
-.jobs {
+.job {
+  .titleList{
+    text-align: center;
+  }
   .cards {
     grid-gap: 20px;
     max-width: 400px;
     margin: 1em auto;
+    h1{
+      text-align: center;
+      margin-bottom: 15px;
+    }
   }
 
   .card {
-    display: grid;
+    // display: grid;
     border: 1px solid #999;
   }
 

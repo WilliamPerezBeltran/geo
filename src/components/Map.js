@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
-// import { useStore } from "react-redux";
 import "mapbox-gl/dist/mapbox-gl.css";
 import * as FetchingData from "../services/FetchJobs";
-// import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
 mapboxgl.accessToken =
@@ -11,9 +9,7 @@ mapboxgl.accessToken =
 
 export const Map = () => {
   const token = Cookies.get("access_token");
-  // const store = useStore();
   const mapContainer = useRef();
-  // const dispatch = useDispatch();
 
   useEffect(async () => {
     let response = await FetchingData.Jobs(token);

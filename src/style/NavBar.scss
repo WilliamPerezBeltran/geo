@@ -1,5 +1,5 @@
 .navbar {
-  background: white;
+  background: #fec107;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@
   padding: 0.5rem 1rem;
   &:hover {
     color: white;
-    background-color: #1888ff;
+    background-color: transparent;
     border-radius: 4px;
     transition: all 0.2s ease-out;
   }

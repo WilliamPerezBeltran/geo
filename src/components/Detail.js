@@ -36,12 +36,14 @@ export const DetailPage = () => {
   }, []);
 
   return (
-    <>
-      <h1>Hello From Detail Page</h1>
+    <div className="job">
+    <div className="cards">
+      <h1>Detail Job</h1>
       <Job detailInformation={jobDetail} />
 
       <Link to="/list">Navigate back to list</Link>
-    </>
+    </div>
+    </div>
   );
 };
 export default DetailPage;

@@ -9,8 +9,7 @@ export const Jobs = () => {
 
   return (
     <>
-      <div className="jobs">
-        <h1>jobs</h1>
+      <div className="job">
         <div className="cards">
           {store.getState().reducerJobs.jobs.map((jobItem, jobId) => {
             return (

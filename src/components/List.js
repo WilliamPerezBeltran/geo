@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useStore } from "react-redux";
 import * as FetchJobs from "../services/FetchJobs";
 import { storeJobs } from "../ActionCreator";
 import { useDispatch } from "react-redux";
 import Jobs from "./Jobs";
 import Cookies from "js-cookie";
+import "../style/List.scss";
 
 export const ListPage = () => {
-  const store = useStore();
   const token = Cookies.get("access_token");
   const [jobs, setJobs] = useState([]);
   const dispatch = useDispatch();
@@ -28,11 +27,11 @@ export const ListPage = () => {
   }, []);
 
   return (
-    <>
-      <h1>Hello From List Page</h1>
+    <div className="containerList">
+      <h1 className="titleList">List jobs</h1>
       <Jobs />
       <Link to="/detail">Navigate to detail</Link>
-    </>
+    </div>
   );
 };
 export default ListPage;

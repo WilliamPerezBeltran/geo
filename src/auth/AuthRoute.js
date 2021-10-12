@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, RouteProps, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext.js";
 
 import Cookies from "js-cookie";

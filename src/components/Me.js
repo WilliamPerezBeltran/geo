@@ -23,19 +23,18 @@ export const Me = () => {
       <div className="containerMe">
         <div className="content">
           <h1>Personal data of {personalData.name} </h1>
-
           <ul>
-            <li>id: {personalData.id}</li>
-            <li>name: {personalData.name}</li>
-            <li>email: {personalData.email}</li>
-            <li>email_verified_at: {personalData.email_verified_at}</li>
-            <li>created_at: {personalData.created_at}</li>
-            <li>updated_at: {personalData.updated_at}</li>
+            <li> <b>id</b> : {personalData.id}</li>
+            <li> <b>name</b> : {personalData.name}</li>
+            <li> <b>email</b> : {personalData.email}</li>
+            <li> <b>email_verified_at</b> : {personalData.email_verified_at}</li>
+            <li> <b>created_at</b> : {personalData.created_at}</li>
+            <li> <b>updated_at</b> : {personalData.updated_at}</li>
           </ul>
+          <Link to="/list">Navigate back to list</Link>
         </div>
       </div>
 
-      <Link to="/list">Navigate back to list</Link>
     </div>
   );
 };
