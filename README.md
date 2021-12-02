@@ -1,6 +1,10 @@
 # Prueba
 - Implementar un sistema de geolocalización de tareas de campo que incluya un módulo de autenticación.
 
+# Fuente de rutas autorizadas 
+- https://lemoncode.net/lemoncode-blog/2020/12/20/react-router-y-rutas-autorizadas-i
+- https://www.youtube.com/watch?v=YPgMnugXBJo&ab_channel=DailyWebCoding
+
 ## Stack
 
 - react 17.0.2,
